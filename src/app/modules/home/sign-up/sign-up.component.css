@@ -1,0 +1,71 @@
+.sign-up-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  width: 500px;
+}
+
+.top-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  place-items: center;
+  padding: 20px 10px 20px 10px;
+  background: linear-gradient(135deg, #0abaf0, #0af0af);
+  border-radius: 20px 20px 0 0;
+}
+
+.title-container{
+  margin: 0;
+  grid-row: 1;
+  grid-column: 1/4;
+}
+
+.icon-back{
+  margin-left: 30px;
+  grid-row: 1;
+  grid-column: 1;
+  font-size: 48px;
+  height: auto;
+  justify-self: start;
+  cursor: pointer;
+  color: #FFFFFF;
+  outline: none;
+  }
+
+.title{
+  font-size: 60px;
+  margin: 0;
+  color: #FFFFFF;
+}
+
+.form-container {
+  display: grid;
+  grid-auto-columns: 1fr;
+  place-items: center;
+  padding: 20px;
+  width: 100%;
+}
+
+.sign-up-form {
+  display: grid;
+  place-items: center;
+  width: 100%;
+}
+
+.inputs-row {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
+}
+
+.inputs-div {
+  padding: 15px 0px;
+  width: 100%;
+}
+
+.inputs-row-2 {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-gap: 10px;
+}

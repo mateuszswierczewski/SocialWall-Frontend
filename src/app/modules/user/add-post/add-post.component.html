@@ -1,0 +1,13 @@
+<div class="add-post-container">
+  <div class="add-post-profile-pic">
+    <img class="profile-pic" src="assets/default_user.png"/>
+  </div>
+  <div class="add-post-main">
+    <textarea id="post-text-input" [(ngModel)]="postText" maxlength="510"></textarea>
+    <div class="add-post-controls">
+      <input #fileInput id="images-input" (change)="loadFiles($event.target.files)" class="add-images-input" type="file" multiple="multiple" hidden>
+      <button class="add-images-input-button" (click)="fileInput.click()">{{fileInputButtonText}}</button>
+      <button class="add-post-button" (click)="addPost()">Add post!</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,188 @@
+<div class="sign-up-container">
+  <div class="top-container">
+    <mat-icon aria-hidden="false" class="icon-back" routerLink="../sign-in">arrow_back_ios</mat-icon>
+    <div class="title-container">
+      <h1 class="title">Sign up</h1>
+    </div>
+  </div>
+
+  <div class="form-container">
+    <form [formGroup]="signUpFormGroup" (ngSubmit)="signUp()" class="sign-up-form" autocomplete="off">
+
+      <div class="inputs-div">
+        <div class="input-wrapper">
+          <input id="username" type="text" formControlName="username" required>
+          <label for="username">Username</label>
+          <div class="error"
+            *ngIf="usernameFormControl.invalid && (usernameFormControl.dirty || usernameFormControl.touched)">
+            <span *ngIf="usernameFormControl.errors?.required">Username is required!</span>
+            <span *ngIf="usernameFormControl.errors?.minlength"> Username must contains at least 3 characters!</span>
+            <span *ngIf="usernameFormControl.errors?.maxlength"> Username must be less than 30 characters!</span>
+            <span *ngIf="usernameFormControl.errors?.uniqueUsername"> Username
+              "{{usernameFormControl.errors?.uniqueUsername.value}}" already exists!</span>
+          </div>
+        </div>
+
+        <div class="inputs-row">
+          <div class="input-wrapper">
+            <input id="password" type="password" formControlName="password" required>
+            <label for="password">Password</label>
+            <div class="error"
+              *ngIf="passwordFormControl.invalid && (passwordFormControl.dirty || passwordFormControl.touched)">
+              <span *ngIf="passwordFormControl.errors?.required"> Password is required!</span>
+              <span *ngIf="passwordFormControl.errors?.minlength"> Password must contains at least 8 characters!</span>
+              <span *ngIf="passwordFormControl.errors?.maxlength"> Password must be less than 255 characters!</span>
+            </div>
+          </div>
+
+          <div class="input-wrapper">
+            <input id="confirmpassword" type="password" formControlName="confirmPassword" required>
+            <label for="password">Confirm password</label>
+            <div class="error"
+              *ngIf="passwordFormControl.invalid && (passwordFormControl.dirty || passwordFormControl.touched)">
+              <span *ngIf="passwordFormControl.errors?.required"> Password is required!</span>
+              <span *ngIf="passwordFormControl.errors?.minlength"> Password must contains at least 8 characters!</span>
+              <span *ngIf="passwordFormControl.errors?.maxlength"> Password must be less than 255 characters!</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="input-wrapper">
+          <input id="email" type="text" formControlName="email" required>
+          <label for="email">Email</label>
+          <div class="error" *ngIf="emailFormControl.invalid && (emailFormControl.dirty || emailFormControl.touched)">
+            <span *ngIf="emailFormControl.errors?.required"> Email is required!</span>
+            <span *ngIf="emailFormControl.errors?.email"> Please provide a valid email!</span>
+          </div>
+        </div>
+
+        <div class="inputs-row">
+          <div class="input-wrapper">
+            <input id="firstName" type="text" formControlName="firstName" required>
+            <label for="firstName">First name</label>
+            <div class="error"
+              *ngIf="firstNameFormControl.invalid && (firstNameFormControl.dirty || firstNameFormControl.touched)">
+              <span *ngIf="firstNameFormControl.errors?.required"> First name is required!</span>
+              <span *ngIf="firstNameFormControl.errors?.maxlength"> First name must be less than 50 characters!</span>
+            </div>
+          </div>
+
+          <div class="input-wrapper">
+            <input id="lastName" type="text" formControlName="lastName" required>
+            <label for="lastName">Last name</label>
+            <div class="error"
+              *ngIf="lastNameFormControl.invalid && (lastNameFormControl.dirty || lastNameFormControl.touched)">
+              <span *ngIf="lastNameFormControl.errors?.required"> Last name is required!</span>
+              <span *ngIf="lastNameFormControl.errors?.maxlength"> Last name must be less than 50 characters!</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="inputs-row">
+          <div class="input-wrapper">
+            <input id="dateOfBirth" type="date" formControlName="birthDate" required>
+            <label for="dateOfBirth">Date of birth</label>
+            <div class="error"
+              *ngIf="birthDateFormControl.invalid && (birthDateFormControl.dirty || birthDateFormControl.touched)">
+              <span *ngIf="birthDateFormControl.errors?.required">Birthdate is required!</span>
+            </div>
+          </div>
+
+          <div class="input-wrapper">
+            <select id="gender" type="" formControlName="gender" required>
+              <option value="MALE">Male</option>
+              <option value="FEMALE">Female</option>
+              <option value="PREFER_NOT_TO_SAY">Prefer not to say</option>
+            </select>
+            <label for="gender">Gender</label>
+            <div class="error"
+              *ngIf="genderFormControl.invalid && (genderFormControl.dirty || genderFormControl.touched)">
+              <span *ngIf="genderFormControl.errors?.required">Gender is required!</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="inputs-row-2">
+        <div class="input-wrapper">
+          <input type="reset" value="Reset! ">
+        </div>
+        <div class="input-wrapper">
+          <input type="submit" value="Sign up! ">
+        </div>
+      </div>
+
+      <!--
+
+      <mat-form-field appearance="outline">
+        <mat-label>Username</mat-label>
+        <input matInput type="text" formControlName="username">
+        <mat-error *ngIf="usernameFormControl.errors?.required" >Username is required!</mat-error>
+        <mat-error *ngIf="usernameFormControl.errors?.minlength"> Username must contains at least 3 characters!</mat-error>
+        <mat-error *ngIf="usernameFormControl.errors?.maxlength"> Username must be less than 30 characters!</mat-error>
+        <mat-error *ngIf="usernameFormControl.errors?.uniqueUsername"> Username "{{usernameFormControl.errors?.uniqueUsername.value}}" already exists!</mat-error>
+      </mat-form-field>
+
+      <div class="inputs-row">
+        <mat-form-field appearance="outline">
+          <mat-label>Password</mat-label>
+          <input matInput type="password" formControlName="password">
+          <mat-error *ngIf="passwordFormControl.errors?.required" > Password is required!</mat-error>
+          <mat-error *ngIf="passwordFormControl.errors?.minlength"> Password must contains at least 8 characters!</mat-error>
+          <mat-error *ngIf="passwordFormControl.errors?.maxlength"> Password must be less than 255 characters!</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Confirm password</mat-label>
+          <input matInput type="password" formControlName="confirmPassword">
+          <mat-error *ngIf="passwordFormControl.errors?.required" > Password is required!</mat-error>
+          <mat-error *ngIf="passwordFormControl.errors?.minlength"> Password must contains at least 8 characters!</mat-error>
+          <mat-error *ngIf="passwordFormControl.errors?.maxlength"> Password must be less than 255 characters!</mat-error>
+        </mat-form-field>
+      </div>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput type="text" formControlName="email">
+        <mat-error *ngIf="emailFormControl.errors?.required" > Email is required!</mat-error>
+        <mat-error *ngIf="emailFormControl.errors?.email"> Please provide a valid email!</mat-error>
+      </mat-form-field>
+
+      <div class="inputs-row">
+        <mat-form-field appearance="outline">
+          <mat-label>First name</mat-label>
+          <input matInput type="text" formControlName="firstName">
+          <mat-error *ngIf="emailFormControl.errors?.required" > Email is required!</mat-error>
+          <mat-error *ngIf="emailFormControl.errors?.email"> Please provide a valid email!</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Last name</mat-label>
+          <input matInput type="text" formControlName="lastName">
+        </mat-form-field>
+      </div>
+
+      <div class="inputs-row">
+        <mat-form-field appearance="outline">
+          <mat-label>Date of birth</mat-label>
+          <input matInput [matDatepicker]="dateOfBirthPicker" formControlName="birthDate">
+          <mat-datepicker-toggle matSuffix [for]="dateOfBirthPicker"></mat-datepicker-toggle>
+          <mat-datepicker #dateOfBirthPicker></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Gender</mat-label>
+          <mat-select formControlName="gender">
+            <mat-option value="MALE">Male</mat-option>
+            <mat-option value="FEMALE">Female</mat-option>
+            <mat-option value="PREFER_NOT_TO_SAY">Prefer not to say</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <button mat-raised-button type="submit" class="sign-up-button" color="primary">Sign up</button>
+
+      -->
+    </form>
+  </div>
+</div>

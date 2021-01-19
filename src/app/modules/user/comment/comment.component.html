@@ -1,0 +1,15 @@
+<div class="comment-container">
+  <div class="comment">
+    <div class="author-name-area">
+      <span class="author-name" (click)="redirectToProfile()">{{comment?.firstName}} {{comment?.lastName}}</span>
+      <span class="date">{{getDate() | date: 'yyyy-MM-dd HH:mm'}}</span>
+    </div>
+    <div class="text-area-content">
+      <p class="text-content">{{comment?.textContent}}</p>
+    </div>
+    <div class="comment-buttons">
+      <button class="action-button" (click)="likeComment()"><mat-icon>thumb_up</mat-icon><span>{{comment.numberOfLikes}}</span></button>
+      <button class="action-button" (click)="dislikeComment()"><mat-icon>thumb_down</mat-icon><span>{{comment.numberOfDislikes}}</span></button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,72 @@
+<div class="profile-container">
+  <div class="user-profile">
+    <div class="user-profile-top">
+      <img *ngIf="userPhoto == null" class="profile-image" [src]="defaultPhoto">
+      <img *ngIf="userPhoto != null" class="profile-image" [src]="userPhoto">
+      <button *ngIf="showActionButton" class="action-button" (click)="takeProfileAction()">
+        {{actionButtonName}}
+      </button>
+    </div>
+    <div class="user-profile-info">
+      <div>
+        <span class="name">{{userInfo?.firstName}} {{userInfo?.lastName}}</span>
+      </div>
+      <div>
+        <span *ngIf="userInfo != null" class="username">@{{userInfo?.username}}</span>
+      </div>
+      <div>
+        <span *ngIf="userInfo?.city != null" class="location" [innerText]="userInfo?.city"></span>
+        <span *ngIf="userInfo?.city != null && userInfo?.country != null">, </span>
+        <span *ngIf="userInfo?.country != null" class="location" [innerText]="userInfo?.country"></span>
+      </div>
+    </div>
+    <div *ngIf="userInfo?.description != null" class="user-profile-description">
+      <p [innerText]="userInfo?.description"></p>
+    </div>
+    <div class="user-profile-info-2">
+      <div class="user-profile-info-2-left">
+        <div>
+          <span>{{userInfo?.numberOfFollowers}} Followers</span>
+        </div>
+        <div>
+          <span>{{userInfo?.numberOfFollowing}} Following</span>
+        </div>
+      </div>
+      <div class="user-profile-info-2-right">
+        <button class="action-button" (click)="toggleInformationBar()">
+          {{actionButtonName2}}
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="informationBarOpened" class="user-info-extented">
+    <div class="information">
+      <span>Email: </span>
+      <span *ngIf="userInfo?.email != null" [innerText]="userInfo?.email"></span>
+    </div>
+    <div class="information">
+      <span>Birthdate: </span>
+      <span *ngIf="userInfo?.birthDate != null" [innerText]="userInfo?.birthDate"></span>
+    </div>
+    <div class="information">
+      <span>Gender: </span>
+      <span *ngIf="userInfo?.gender != null" [innerText]="userInfo?.gender"></span>
+    </div>
+    <div class="information2">
+      <span *ngIf="userInfo?.email == null && userInfo?.birthDate == null && userInfo?.gender == null">There is no more information!</span>
+    </div>
+  </div>
+
+  <div class="posts-container">
+    <div *ngFor="let post of posts">
+      <app-post (delete)="deletePost($event)" [post]="post"></app-post>
+    </div>
+  </div>
+
+  <div *ngIf="!isNoMorePosts" class="load-new-posts-container">
+    <button class="action-button" (click)="loadPosts()">
+      Load more posts!
+    </button>
+  </div>
+</div>

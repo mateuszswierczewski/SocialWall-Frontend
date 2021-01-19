@@ -1,0 +1,33 @@
+.wall {
+  box-sizing: border-box;
+  width: 800px;
+  display: flex;
+  flex-flow: column;
+}
+
+.action-button {
+  grid-column: 3/4;
+  height: 36px;
+  border-radius: 18px;
+  border: 1px solid #0abaf0;
+  color: #0abaf0;
+  background: #FFF;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 0px 15px;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.action-button:hover{
+  color: #FFF;
+  background: #0abaf0;
+}
+
+.load-new-posts-container {
+  margin: 20px 0px;
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+}

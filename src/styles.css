@@ -1,1 +1,132 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body {box-sizing: border-box; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+
+::-webkit-scrollbar {
+  width: 10px;
+  padding: 3px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f2f2f2;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #0898d0;
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+  background: #0676b0;
+}
+
+
+/* ************************************************************************************************************************************* */
+/* *                                                                                                                                   * */
+/* *                                                             FORM STYLE                                                            * */
+/* *                                                                                                                                   * */
+/* ************************************************************************************************************************************* */
+
+.input-wrapper {
+  height: 50px;
+  width: 100%;
+  margin: 15px 0;
+  position: relative;
+}
+
+.input-wrapper input, select, textarea {
+  height: 100%;
+  width: 100%;
+  padding-left: 25px;
+  border-radius: 25px;
+  border: 1px solid lightgray;
+  font-size: 17px;
+  outline: none;
+  transition: all 0.3s ease;
+  appearance: none;
+}
+
+.input-wrapper input:valid,
+.input-wrapper input:focus,
+.input-wrapper select:valid,
+.input-wrapper select:focus,
+.input-wrapper textarea:valid,
+.input-wrapper textarea:focus {
+  border-color: #0abaf0;
+}
+
+.input-wrapper label {
+  position: absolute;
+  top: 50%;
+  left: 25px;
+  font-size: 17px;
+  color: #999;
+  transform: translateY(-50%);
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.input-wrapper input:valid ~ label,
+.input-wrapper input:focus ~ label,
+.input-wrapper select:valid ~ label,
+.input-wrapper select:focus ~ label,
+.input-wrapper textarea:valid ~ label,
+.input-wrapper textarea:focus ~ label {
+  top: 0%;
+  color: #0abaf0;
+  font-size: 13px;
+  transform: translateY(-50%);
+  background: #FFFFFF;
+  padding: 2px;
+}
+
+.input-wrapper textarea {
+  height: 100px;
+  resize: none;
+}
+
+.input-wrapper input[type="submit"],
+.input-wrapper input[type="reset"] {
+  padding: 0px;
+  border: none;
+  font-size: 25px;
+  color: #FFF;
+  font-weight: bold;
+  background: linear-gradient(135deg, #0abaf0,#0af0af 51%,#0abaf0) var(--x, 0)/ 200%;
+  cursor: pointer;
+  padding-left: none;
+  transition: all 1s ease;
+  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.2);
+}
+
+.input-wrapper input[type="reset"] {
+  background: linear-gradient(135deg, #e81c3e,#e81cda 51%,#e81c3e) var(--x, 0)/ 200%;
+}
+
+.input-wrapper input[type="submit"]:hover,
+.input-wrapper input[type="reset"]:hover {
+  --x: 100%;
+  box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.5);
+}
+
+.input-wrapper input[type="submit"]:active,
+.input-wrapper input[type="reset"]:active {
+  transform: scale(0.95);
+}
+
+.input-wrapper .error {
+  font-size: 12px;
+  color: red;
+  padding-top: 3px;
+  padding-left: 25px;
+}
+
+/* ************************************************************************************************************************************* */
+/* ************************************************************************************************************************************* */
+/* ************************************************************************************************************************************* */
+/* ************************************************************************************************************************************* */

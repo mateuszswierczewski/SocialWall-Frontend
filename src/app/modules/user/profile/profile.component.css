@@ -1,0 +1,116 @@
+.profile-container {
+  width: 800px;
+}
+
+.user-profile {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  border: 1px solid #0abaf0;
+  -webkit-box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.5);
+  -moz-box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.5);
+  box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.5);
+  margin-top: 100px;
+  z-index: 100;
+}
+
+.user-profile-top {
+  padding: 0 30px 20px 30px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 150px;
+  height: 150px;
+  place-items: center;
+}
+
+.profile-image {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 2px #0abaf0 solid;
+  display: grid;
+  position: relative;
+  top: -50px;
+  z-index: 99;
+  -webkit-box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.5);
+  -moz-box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.5);
+  box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.5);
+}
+
+.user-profile-info {
+  padding: 0 30px 20px 30px;
+
+}
+
+.name {
+  font-size: 40px;
+  font-weight: 500;
+}
+
+.username {
+  font-size: 20px;
+  color: darkgray;
+}
+
+.location {
+  font-size: 20px;
+}
+
+.user-profile-description {
+  padding: 0 30px 20px 30px;
+  text-align: center;
+}
+
+.user-profile-info-2{
+  padding: 0 30px 20px 30px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.user-profile-info-2-right{
+  grid-column: 3/4;
+  justify-self: center;
+}
+
+.action-button {
+  grid-column: 3/4;
+  height: 36px;
+  border-radius: 18px;
+  border: 1px solid #0abaf0;
+  color: #0abaf0;
+  background: #FFF;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 0px 15px;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.action-button:hover{
+  color: #FFF;
+  background: #0abaf0;
+}
+
+.user-info-extented {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  border: 1px solid #0abaf0;
+  -webkit-box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.5);
+  -moz-box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.5);
+  box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.5);
+  margin-top: 20px;
+  padding: 10px;
+}
+
+.information {
+  padding: 10px 0;
+}
+
+.load-new-posts-container {
+  margin: 20px 0px;
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+}

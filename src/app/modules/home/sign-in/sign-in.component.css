@@ -1,0 +1,57 @@
+.sign-in-container {
+  width: 400px;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.title-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  place-items: center;
+  padding: 20px 10px 20px 10px;
+  background: linear-gradient(135deg, #0abaf0, #0af0af);
+  border-radius: 20px 20px 0 0;
+}
+
+.title{
+  font-size: 60px;
+  margin: 0;
+  color: #FFFFFF;
+}
+
+.form-container {
+  display: grid;
+  grid-auto-columns: 1fr;
+  place-items: center;
+  padding: 20px;
+  width: 100%;
+}
+
+.sign-in-form {
+  display: grid;
+  place-items: center;
+  width: 80%;
+}
+
+.inputs-div {
+  display: grid;
+  grid-auto-columns: 1fr;
+  padding: 15px 0px;
+  width: 100%;
+}
+
+
+.link-div {
+  display: grid;
+  padding: 20px 0px;
+  width: 100%;
+  place-items: center;
+}
+
+.error-message {
+  font-size: 18px;
+  color: red;
+  font-weight: bold;
+}
+
+

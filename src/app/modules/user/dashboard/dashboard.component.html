@@ -1,0 +1,50 @@
+<app-notifcation></app-notifcation>
+<div class="navbar">
+  <div class="navbar-div">
+    <a id="main-link" routerLink="./wall">SocialWall</a>
+  </div>
+  <div class="navbar-div">
+    <form class="search-form">
+      <input #searchInput class="input input-text" type="text" autocomplete="off">
+      <button class="input input-submit" type="submit" (click)="findUserByName(searchInput.value, $event)">
+        <mat-icon>search</mat-icon>
+      </button>
+      <div *ngIf="isListOfFoundUsersOpen" class="users-list" clickOutside (clickOutside)="hideListOfFoundUsers()">
+        <div class="users-list-2">
+          <div class="found-user-span">
+            <span>Found {{users.length}} user<span *ngIf="users.length != 1">s</span></span>
+          </div>
+          <div *ngFor="let user of users">
+            <div class="found-user" (click)="redirectToFoundUserProfile(user.userId)">
+              <div class="found-user-image-div">
+                <img class="found-user-image" [src]="getProfileImage(user.userId)">
+              </div>
+              <div class="found-user-info">
+                <div>
+                  <span>{{user.firstName}} {{user.lastName}}</span>
+                </div>
+                <div>
+                  <span class="find-user-username">@{{user.username}}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="navbar-div">
+    <mat-icon id="menu-button" (click)="toggleMenu()">menu</mat-icon>
+  </div>
+</div>
+<div id="menu-sidebar" class="menu-content">
+  <div class="user-profile" (click)="redirectToUserProfile()">
+    <img class="profile-pic" src="assets/default_user.png" />
+    <span class="username">@{{currentUserInfo.username}}</span>
+  </div>
+  <a class="menu-options" (click)="redirectToSettings()">SETTINGS</a>
+  <a class="menu-options">SIGN OUT</a>
+</div>
+<div class="dashboard-content">
+  <router-outlet></router-outlet>
+</div>

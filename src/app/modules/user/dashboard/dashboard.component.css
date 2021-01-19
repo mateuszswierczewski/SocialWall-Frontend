@@ -1,0 +1,216 @@
+.navbar {
+  height: 70px;
+  width: 100%;
+  background: linear-gradient(135deg, #0abaf0, #0af0af);
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  -webkit-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.5);
+  -moz-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.5);
+  box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+}
+
+.navbar-div {
+  display: grid;
+  align-items: center;
+  min-width: 250px;
+}
+
+.dashboard-content {
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+}
+
+#main-link {
+  text-decoration: none;
+  align-self: center;
+  font-size: 35px;
+  font-weight: bold;
+  color: #FFF;
+  margin-left: 20px;
+  grid-column-start: 0;
+}
+
+.search-form {
+  display: flex;
+  margin: auto 0;
+  position: relative;
+}
+
+.input {
+  height: 40px;
+  width: 300px;
+  border: 1px solid #0abaf0;
+  border-radius: 20px;
+  outline: none;
+  padding-left: 20px;
+  font-size: 17px;
+}
+
+.input-text {
+  width: 300px;
+  border-radius: 20px 0 0 20px;
+}
+
+.input-submit {
+  width: 40px;
+  border-radius: 0 20px 20px 0;
+  padding: 5px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  color: #0abaf0;
+  background-color: #FFF;
+  font-weight: 500;
+  border-left: none;
+}
+
+.input-submit mat-icon {
+  width: auto;
+  height: auto;
+  font-size: 25px;
+  margin-right: 5px;
+  vertical-align: middle;
+}
+
+.input-submit:hover {
+  background: #0abaf0;
+  color: #FFF;
+  cursor: pointer;
+}
+
+.users-list {
+  position: absolute;
+  width: 300px;
+  max-height: 400px;
+  overflow: hidden;
+  border: 1px solid #0abaf0;
+  background: #FFF;
+  z-index: -1;
+  border-radius: 20px;
+}
+
+.users-list-2 {
+  margin-top: 39px;
+  max-height: 360px;
+  overflow: scroll;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.found-user-span {
+  padding: 10px;
+  text-justify: center;
+  text-align: center;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+.found-user {
+  display: flex;
+}
+
+.found-user:hover {
+  background: #f2f2f2;
+  cursor: pointer;
+}
+
+.found-user-image-div {
+  padding: 5px;
+}
+
+.found-user-image {
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+}
+
+.found-user-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.find-user-username {
+  color: darkgray;
+}
+
+#account-menu {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+#menu-button {
+  align-self: center;
+  justify-self: end;
+  color: #FFF;
+  font-size: 60px;
+  outline: none;
+  height: auto;
+  width: auto;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+#menu-sidebar {
+  position: fixed;
+  width: 300px;
+  right: -350px;
+  background: #0abaf0;
+  height: 100%;
+  top: 70px;
+  display: flex;
+  flex-direction: column;
+  color: #FFF;
+  font-size: 30px;
+  font-weight: 400;
+  z-index: 500;
+  -webkit-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.5);
+  -moz-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.5);
+  box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.5);
+  transition: all 0.5s ease;
+}
+
+.user-profile {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  border-left: 5px solid #0abaf0;
+  box-sizing: border-box;
+}
+
+.profile-pic {
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+.username {
+  margin-bottom: 20px;
+}
+
+.menu-options {
+  width: 100%;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-left: 5px solid #0abaf0;
+  box-sizing: border-box;
+}
+
+.user-profile:hover,
+.menu-options:hover {
+  background: #09a9e0;
+  cursor: pointer;
+  border-left-color: #0af0af;
+}

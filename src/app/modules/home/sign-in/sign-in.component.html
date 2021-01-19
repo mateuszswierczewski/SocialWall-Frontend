@@ -1,0 +1,46 @@
+<div class="sign-in-container">
+
+  <div class="title-container">
+    <h1 class="title">Sign in</h1>
+  </div>
+
+  <div class="form-container">
+
+    <div *ngIf="error != null" class="error-message">
+      <span>{{error}}</span>
+    </div>
+
+    <form class="sign-in-form" [formGroup]="signInFormGroup" (ngSubmit)="signIn()" novalidate autocomplete="off">
+      <div class="inputs-div">
+        <div class="input-wrapper">
+          <input id="username" type="text" formControlName="username" required>
+          <label for="username">Username or email</label>
+          <div class="error"
+            *ngIf="usernameFormControl.invalid && (usernameFormControl.dirty || usernameFormControl.touched)">
+            <span *ngIf="usernameFormControl.errors?.required">Please provide username or email!</span>
+            <span *ngIf="usernameFormControl.errors?.minlength">Name must contain at least 3 characters!</span>
+          </div>
+        </div>
+
+        <div class="input-wrapper">
+          <input id="password" type="password" formControlName="password" required>
+          <label for="password">Password</label>
+          <div class="error"
+            *ngIf="passwordFormControl.invalid && (passwordFormControl.dirty || passwordFormControl.touched)">
+            <span *ngIf="passwordFormControl.errors?.required">Please provide password!</span>
+            <span *ngIf="passwordFormControl.errors?.minlength">Password must contain at least 8 characters!</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="input-wrapper">
+        <input type="submit" value="Sign in!">
+      </div>
+    </form>
+
+    <div class="link-div">
+      <span>You don't have an account? <a class="" routerLink="../sign-up">Sign up!</a></span>
+    </div>
+  </div>
+
+</div>

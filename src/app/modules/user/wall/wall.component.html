@@ -1,0 +1,17 @@
+<div class="wall">
+  <app-add-post></app-add-post>
+</div>
+<div>
+  <div class="posts-container">
+    <div *ngFor="let post of posts">
+      <app-post (delete)="deletePost($event)" [post]="post"></app-post>
+    </div>
+  </div>
+
+  <div *ngIf="!isNoMorePosts" class="load-new-posts-container">
+    <button class="action-button" (click)="loadPosts()">
+      Load more posts!
+    </button>
+  </div>
+</div>
+

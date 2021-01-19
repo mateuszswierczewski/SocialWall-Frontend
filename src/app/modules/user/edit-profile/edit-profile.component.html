@@ -1,0 +1,111 @@
+<div class="profile-edit">
+  <div class="profile-edit-title">
+    <h1>Edit your profile!</h1>
+  </div>
+  <div class="profile-edit-title">
+    <h2>Change your profile image</h2>
+  </div>
+  <div class="profile-edit-photo">
+    <div class="profile-edit-photo-div">
+      <img class="profile-img" [src]="photoLink">
+    </div>
+    <div class="profile-edit-photo-div">
+      <input #photoInput type="file" (change)="loadPhoto($event.target.files)" hidden>
+      <button class="button" (click)="photoInput.click()">Select photo!</button>
+      <button class="button" (click)="uploadPhoto()" >Upload your new photo!</button>
+    </div>
+  </div>
+  <div class="profile-edit-title">
+    <h2>Change your personal data</h2>
+  </div>
+  <div class="form-div">
+    <form class="form" [formGroup]="editProfileForm" (ngSubmit)="sendEditUserProfileRequest()">
+
+      <div class="inputs-div input-space">
+        <div class="input-wrapper">
+          <input id="username" type="text" formControlName="username">
+          <label for="username">Username</label>
+          <div class="error"
+            *ngIf="usernameFormControl.invalid && (usernameFormControl.dirty || usernameFormControl.touched)">
+            <span *ngIf="usernameFormControl.errors?.required">Username is required!</span>
+            <span *ngIf="usernameFormControl.errors?.minlength"> Username must contains at least 3 characters!</span>
+            <span *ngIf="usernameFormControl.errors?.maxlength"> Username must be less than 30 characters!</span>
+            <span *ngIf="usernameFormControl.errors?.uniqueUsername"> Username
+              "{{usernameFormControl.errors?.uniqueUsername.value}}" already exists!</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="inputs-div input-space">
+        <div class="input-wrapper">
+          <input id="firstName" type="text" formControlName="firstName">
+          <label for="firstName">First name</label>
+          <div class="error"
+              *ngIf="firstNameFormControl.invalid && (firstNameFormControl.dirty || firstNameFormControl.touched)">
+              <span *ngIf="firstNameFormControl.errors?.required"> First name is required!</span>
+              <span *ngIf="firstNameFormControl.errors?.maxlength"> First name must be less than 50 characters!</span>
+            </div>
+        </div>
+      </div>
+
+      <div class="inputs-div input-space">
+        <div class="input-wrapper">
+          <input id="lastName" type="text" formControlName="lastName">
+          <label for="lastName">Last name</label>
+          <div class="error"
+              *ngIf="lastNameFormControl.invalid && (lastNameFormControl.dirty || lastNameFormControl.touched)">
+              <span *ngIf="lastNameFormControl.errors?.required"> Last name is required!</span>
+              <span *ngIf="lastNameFormControl.errors?.maxlength"> Last name must be less than 50 characters!</span>
+            </div>
+        </div>
+      </div>
+
+      <div class="inputs-div input-space">
+        <div class="input-wrapper">
+          <input id="dateOfBirth" type="date" formControlName="birthDate">
+          <label for="dateOfBirth">Date of birth</label>
+          <div class="error"
+            *ngIf="birthDateFormControl.invalid && (birthDateFormControl.dirty || birthDateFormControl.touched)">
+            <span *ngIf="birthDateFormControl.errors?.required">Birthdate is required!</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="inputs-div input-space">
+        <div class="input-wrapper">
+          <input id="city" type="text" formControlName="city">
+          <label for="city">City</label>
+          <div class="error"
+            *ngIf="cityFormControl.invalid && (cityFormControl.dirty || cityFormControl.touched)">
+            <span *ngIf="usernameFormControl.errors?.maxlength"> City must be less than 50 characters!</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="inputs-div input-space">
+        <div class="input-wrapper">
+          <input id="country" type="text" formControlName="country">
+          <label for="country">Country</label>
+          <div class="error"
+            *ngIf="countryFormControl.invalid && (countryFormControl.dirty || countryFormControl.touched)">
+            <span *ngIf="countryFormControl.errors?.maxlength"> Country must be less than 50 characters!</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="inputs-div input-space">
+        <div class="input-wrapper text-area-height">
+          <textarea id="description" type="text" formControlName="description"></textarea>
+          <label for="description">Description</label>
+          <div class="error"
+            *ngIf="descriptionFormControl.invalid && (descriptionFormControl.dirty || descriptionFormControl.touched)">
+            <span *ngIf="descriptionFormControl.errors?.maxlength"> Description must be less than 255 characters!</span>
+          </div>
+        </div>
+      </div>
+
+      <button class="button" type="submit">Edit your personal data</button>
+
+    </form>
+  </div>
+</div>

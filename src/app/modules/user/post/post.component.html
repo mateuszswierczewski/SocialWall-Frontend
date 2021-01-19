@@ -1,0 +1,54 @@
+<div class="post-container">
+  <div class="post-top-area">
+    <div class="top-left">
+      <img class="profile-pic" src="assets/default_user.png" />
+      <div class="user-names-area">
+        <span id="name" (click)="redirectToProfile()" >{{post.userBasicInfo.firstName}} {{post.userBasicInfo.lastName}}</span>
+        <span id="date">{{getDate() | date: 'yyyy-MM-dd HH:mm'}}</span>
+      </div>
+    </div>
+    <div class=top-right>
+      <mat-icon id="options" (click)="toggleMenu($event)">more_horiz</mat-icon>
+      <div *ngIf="isMenuOpen" clickOutside (clickOutside)="closeMenu($event)" class="post-menu">
+        <div *ngIf="isTheAuthorOfThePost()" (click)="deletePost()" class="post-menu-option">
+          <mat-icon>clear</mat-icon>
+          <span>Delete</span>
+        </div>
+        <div *ngIf="!isTheAuthorOfThePost()" (click)="reportPost()" class="post-menu-option">
+          <mat-icon>report</mat-icon>
+          <span>Report</span>
+        </div>
+      </div>
+    </div>
+    </div>
+  <div *ngIf="post.textContent != null" class="post-text-area">
+    <p id="post-text">
+      {{post.textContent}}
+    </p>
+  </div>
+  <div *ngIf="post.postType === 'IMAGE' || post.postType === 'TEXT_IMAGE'" class="post-images-area">
+    <span>tutaj pwinien być obrazek</span>
+  </div>
+  <div class="post-actions-area">
+    <button id="like-button" class="action-button" (click)="likePost()"><mat-icon>thumb_up</mat-icon><span>{{post.numberOfLikes}} {{post.numberOfLikes == 1 ? 'Like' : 'Likes'}}</span></button>
+    <button id="dislike-button" class="action-button" (click)="dislikePost()"><mat-icon>thumb_down</mat-icon><span>{{post.numberOfDislikes}} {{post.numberOfDislikes == 1 ? 'Dislike' : 'Dislikes'}}</span></button>
+    <button id="comment-button" class="action-button" (click)="toggleCommentsArea()"><mat-icon>comment</mat-icon><span>{{post.numberOfComments}} {{post.numberOfComments == 1 ? 'Comment' : 'Comments'}}</span></button>
+  </div>
+  <div *ngIf="commentAreaVisible" class="comments-area">
+    <div class="comments-area-top">
+      <span class="comment-text">Comments: </span>
+    </div>
+    <div *ngIf="comments?.length > 0" class="comments-area-center">
+      <div *ngFor="let comment of comments">
+        <app-comment [comment]="comment"></app-comment>
+      </div>
+    </div>
+    <div class="no-comments-message" *ngIf="comments == null || comments?.length == 0">
+      <span>There are no comments yet! Write a comment below!</span>
+    </div>
+    <div class="comments-area-bottom">
+      <textarea id="comment-textarea" [(ngModel)]="commentText" maxlength="510" placeholder="Write a comment!"></textarea>
+      <button (click)="sendComment()" class="action-button"><span>Send!</span></button>
+    </div>
+  </div>
+</div>

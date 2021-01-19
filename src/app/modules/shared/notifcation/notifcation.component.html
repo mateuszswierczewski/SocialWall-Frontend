@@ -1,0 +1,5 @@
+<div class="notifications">
+  <div *ngFor="let notification of notifications" class="notification" [ngClass]="notificationStyle(notification)">
+		<span>{{notification.message}}</span>
+	</div>
+</div>
